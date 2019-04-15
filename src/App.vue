@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <ResultComponent v-if="GetStatusGame"/>
+    <Fields v-else />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Fields from './components/Fields.vue'
+import ResultComponent from './components/ResultComponent.vue'
+
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'app',
+  data () {
+    return {
+    }
+  },
+  created () {
+    this.RenderFields()
+  },
+  methods: {
+    ...mapActions('logic', {
+      RenderFields: 'RenderFields'
+    })
+  },
+  computed: {
+    ...mapGetters('logic', {
+      GetFields: 'GetFields',
+      GetStatusGame: 'GetStatusGame'
+    })
+  },
   components: {
-    HelloWorld
+    Fields,
+    ResultComponent
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .container {
+    max-width: 1025px;
+    margin: 0 auto;
+    padding: 0px 12px;
+  }
 </style>
