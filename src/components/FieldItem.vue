@@ -1,11 +1,10 @@
 <template>
-  <div class="FieldItem" @click="pickField" @contextmenu.prevent="pickBomb">
+  <div :class="PrintTitle" @click="pickField" @contextmenu.prevent="pickBomb">
     <span>{{ title }}</span>
   </div>
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
 
 export default {
   name: 'FieldItem',
@@ -33,6 +32,9 @@ export default {
     }
   },
   computed: {
+    PrintTitle () {
+      return this.title === '0' ? 'titleZero FieldItem' : 'titleNumber FieldItem'
+    }
   }
 }
 </script>
@@ -49,7 +51,6 @@ export default {
     display: flex;
     justify-content: center;
     text-align: center;
-
   }
 
   span {
@@ -64,5 +65,20 @@ export default {
     text-align: center;
     outline: none;
     border: none;
+  }
+
+  .titleZero {
+    background-color: grey;
+    content: '';
+    color: white;
+  }
+
+  .titleZero span {
+    font-size: 0
+  }
+
+  .titleNumber {
+    color: black;
+    font-size: 30px;
   }
 </style>
