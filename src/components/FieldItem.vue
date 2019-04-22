@@ -15,12 +15,6 @@ export default {
   },
   data () {
     return {
-      valueField: ''
-    }
-  },
-  created () {
-    if (this.value === 'mine') {
-      this.valueField = 'mine'
     }
   },
   methods: {
@@ -33,7 +27,16 @@ export default {
   },
   computed: {
     PrintTitle () {
-      return this.title === '0' ? 'titleZero FieldItem' : 'titleNumber FieldItem'
+      let className = 'FieldItem '
+
+      if (this.title === '0') {
+        className += 'titleZero'
+      } else if (this.title === 'X') {
+        className += 'titleBomb'
+      } else {
+        className += 'titleNumber'
+      }
+      return className
     }
   }
 }
@@ -44,7 +47,7 @@ export default {
     height: 50px;
     width: 50px;
     /*display: inline-block;*/
-    border: 1.5px solid red;
+    border: 1.5px solid black;
     padding: 5px 5px 5px 5px;
     margin: 0px;
     font-size:  20px;
@@ -74,11 +77,20 @@ export default {
   }
 
   .titleZero span {
-    font-size: 0
+    font-size: 0;
   }
 
   .titleNumber {
     color: black;
     font-size: 30px;
+  }
+
+  .titleBomb {
+    font-size: 40px;
+    color: red;
+  }
+
+  .titleBomb {
+
   }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-for="(FieldLine, idx) in GetFields" class="flex" :key="idx">
-      <FieldItem v-for="(FieldItem, index) in FieldLine"
+    <div v-for="(FieldLine, lineY) in GetFields" class="flex" :key="lineY">
+      <FieldItem v-for="(FieldItem, lineX) in FieldLine"
                  :value="FieldItem.value"
                  :title="FieldItem.title"
-                 :key="index"
-                 @pickField="pickItem(index, idx)"
-                 @pickBomb="pickBomb({coordX: index, coordY: idx})"
+                 :key="lineX"
+                 @pickField="PickField({ coordX: lineX, coordY:lineY })"
+                 @pickBomb="pickBomb({ coordX: lineX, coordY: lineY })"
                  :update="Update"
                   />
     </div>
@@ -19,38 +19,34 @@ import FieldItem from './FieldItem.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-name: 'Fields',
-data () {
-  return {
-
+  name: 'Fields',
+  data () {
+    return {
+    }
+  },
+  methods: {
+    ...mapActions('logic', {
+      RenderFields: 'RenderFields',
+      PickField: 'PickField',
+      pickBomb: 'pickBomb'
+    })
+  },
+  computed: {
+    ...mapGetters('logic', {
+      GetFields: 'GetFields',
+      Update: 'Update'
+    })
+  },
+  components: {
+    FieldItem
   }
-},
-methods: {
-  ...mapActions('logic', {
-    RenderFields: 'RenderFields',
-    PickField: 'PickField',
-    pickBomb: 'pickBomb'
-  }),
-  pickItem (coordX, coordY) {
-    this.PickField({ coordX, coordY })
-  }
-},
-computed: {
-  ...mapGetters('logic', {
-    GetFields: 'GetFields',
-    Update: 'Update'
-  })
-},
-components: {
-  FieldItem
-}
 }
 </script>
 
 <style>
 .FieldItem {
 display: inline-block;
-border: 1.5px solid red;
+border: 1.5px solid black;
 padding: 0px;
 content: '';
 margin: 0px;

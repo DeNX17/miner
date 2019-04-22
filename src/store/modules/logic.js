@@ -2,12 +2,12 @@ import { randMinesFields, CountMinesAround, OpenAroundFields } from '../../asset
 export default {
   namespaced: true,
   state: {
-    fields: [], // fields for game
-    amountMine: 5,
-    coordX: 10, // length for x
-    coordY: 10, // length for y
-    resultGame: false, // result Game
-    update: false // tool var
+    fields: [], // поля для игры
+    amountMine: 15,
+    coordX: 10, // длинна поля по горизонтали
+    coordY: 10, // длинна по вертикале
+    resultGame: false, // Результат игры
+    update: false // Пременная для обновления при изминении массива полей
   },
   getters: {
     GetFields (state) {

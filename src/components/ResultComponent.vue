@@ -10,22 +10,22 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-name: 'ResultComponent',
-data () {
-  return {
+  name: 'ResultComponent',
+  data () {
+    return {
+    }
+  },
+  methods: {
+    ...mapActions('logic', {
+      RestartGame: 'RestartGame',
+      RenderFields: 'RenderFields'
+    })
+  },
+  computed: {
+    ...mapGetters('logic', {
+      GetStatusGame: 'GetStatusGame'
+    })
   }
-},
-methods: {
-  ...mapActions('logic', {
-    RestartGame: 'RestartGame',
-    RenderFields: 'RenderFields'
-  })
-},
-computed: {
-  ...mapGetters('logic', {
-    GetStatusGame: 'GetStatusGame'
-  })
-}
 }
 </script>
 
@@ -33,5 +33,14 @@ computed: {
   p {
     font-size: 45px;
     color: black;
+  }
+
+  button {
+    background-color: blur;
+    outline: none;
+    border: none;
+    width: 150px;
+    height: 75px;
+    border-radius: 25px;
   }
 </style>

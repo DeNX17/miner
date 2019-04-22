@@ -20,10 +20,10 @@ function CountMinesAround (fields, coordX, coordY) {
   let countMines = 0
 
   for (let y = coordY - 1; y < coordY + 2; y++) {
+    if (y < 0 || y >= fields.length) continue
     for (let x = coordX - 1; x < coordX + 2; x++) {
-      if (fields[y] !== undefined && fields[y][x] !== undefined) {
-        if (fields[y][x].value === 'mine') { countMines += 1 }
-      }
+      if (x < 0 || x >= fields[0].length) continue
+      if (fields[y][x].value === 'mine') { countMines += 1 }
     }
   }
   return countMines
