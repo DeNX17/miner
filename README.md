@@ -1,4 +1,4 @@
-# sudoku
+# Miner
 
 ## Project setup
 ```
