@@ -23,8 +23,8 @@ export default {
   mutations: {
     RenderFields (state) {
       state.resultGame = false
-      // eslint-disable-next-line
-      let mines = randMinesFields(0, state.coordX-1, state.amountMine) // rand coord of mines
+      let mines = randMinesFields(0, state.coordX - 1, state.amountMine) // rand coord of mines
+
       for (let y = 0; y < state.coordY; y++) {
         state.fields[y] = []
 

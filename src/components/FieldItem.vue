@@ -56,9 +56,6 @@ export default {
     text-align: center;
   }
 
-  span {
-  }
-
   input {
     margin: 0px;
     padding: 0px;
@@ -88,9 +85,5 @@ export default {
   .titleBomb {
     font-size: 40px;
     color: red;
-  }
-
-  .titleBomb {
-
   }
 </style>

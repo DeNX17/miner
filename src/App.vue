@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div class="container">
     <ResultComponent v-if="GetStatusGame"/>
     <Fields v-else />
   </div>
@@ -13,10 +13,6 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'app',
-  data () {
-    return {
-    }
-  },
   created () {
     this.RenderFields()
   },
@@ -40,9 +36,18 @@ export default {
 </script>
 
 <style>
+  * {
+    user-select: none;
+  }
+
   .container {
     max-width: 1025px;
     margin: 0 auto;
     padding: 0px 12px;
+  }
+
+  @font-face {
+    font-family: 'Slabo';
+    src: url("./assets/Slabo27px-Regular.ttf");
   }
 </style>

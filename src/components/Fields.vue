@@ -20,10 +20,6 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Fields',
-  data () {
-    return {
-    }
-  },
   methods: {
     ...mapActions('logic', {
       RenderFields: 'RenderFields',

@@ -32,11 +32,14 @@ export default {
 <style>
   p {
     font-size: 45px;
+    font-family: Slabo;
     color: black;
   }
 
   button {
     background-color: blur;
+    font-family: Slabo;
+    font-size: 35px;
     outline: none;
     border: none;
     width: 150px;
